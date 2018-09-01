@@ -1,0 +1,160 @@
+\documentclass[dvips, a4paper,11pt, oneside]{report}
+
+% \usepackage[ngerman]{babel}	% damit die angehänge Zusammenfassung 'Abb.' hat
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage[skip=16pt]{caption}
+\usepackage{amsfonts} 
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{hhline,float}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage[position=top]{subfig}
+\usepackage{natbib}
+\usepackage{import}
+\usepackage{bm}
+\usepackage{epsfig}			% LaTeX-Stil fuer PostScript-Bilder
+\usepackage{psfrag}
+\usepackage{datetime}
+\usepackage[medium]{titlesec}        % Größe der Überschriften anpassen
+\usepackage{fancyvrb}	% Verbatimumgebungen besser
+					% gestalten. Damit kann man Text
+					% einbinden, ohne Sonderzeichen
+					% beachten zu muessen. Diese Umgebung
+					% erlaubt dann die Variation der
+					% Schriftgroesse und weiterer Details  
+\usepackage{fancyhdr}	% Definition of own headers/footers
+%\usepackage{scrpage}	% Def. eigener Kopf-/Fusszeilen
+\usepackage{graphicx}	% zum Einbinden von Bildern
+% \usepackage{wrapfig}	% fuer textumflossene Bilder
+% \usepackage{rotating}	% damit kann man Bilder drehen, z.B. mit "sidewaysfigure"
+% \usepackage{subfigure}	% Mehrere Bilder in einer Reihe
+% \usepackage{longtable}	% support for tables longer than a page
+ \usepackage{booktabs}	% better layout for tables
+\usepackage{gensymb}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{color}		% Arbeiten mit Farben
+\usepackage{longtable}	% Unterstuetzt Tabellen mit Seitenumbruch
+\usepackage[bookmarks=true, linktocpage=true,
+            bookmarksopen=true,
+            bookmarksopenlevel=2, colorlinks]
+            {hyperref}      
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
+
+\hypersetup{linkcolor=red}
+\hypersetup{citecolor=blue}
+
+%%----------------------Seiteneinstellung-------------------------------
+%% Dies sind globale Einstellungen
+
+\textheight 22.5cm
+\textwidth 15.5cm
+\oddsidemargin 0.5cm
+\evensidemargin 0.5cm
+\parindent 0cm
+\topmargin 0cm
+
+
+%%----------------------Abbildungseinstellungen-------------------------------
+\makeatletter%
+\renewenvironment{figure}{%
+   \renewcommand{\captionlabelfont}{\normalsize\bfseries\boldmath}%
+   \renewcommand{\captionfont}{\normalsize}%
+   \@float{figure}}{%
+   \end@float%
+%   \renewcommand{\captionlabelfont}{\normalsize\bfseries\boldmath}%
+%   \renewcommand{\captionfont}{\normalsize}
+    \@ignoretrue%
+}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\fps@figure}{htb}
+\renewcommand{\ftype@figure}{1}
+\renewcommand{\ext@figure}{lof}
+\renewcommand{\fnum@figure}{\bfseries\figurename{} \thefigure}
+\makeatother
+
+% %------Part-einstellungen
+\renewcommand{\partname}{}
+\renewcommand{\thepart}{}
+\newcommand{\mypart}[3]
+    {{\part[#1]{{{\normalfont \Huge \bfseries  Part #3 : #1}\newline \newline {\Huge \ \ #2}}}}}
+    
+
+
+
+%%----------------------Kapiteleinstellungen-------------------------------
+\pagestyle{fancy}
+\fancyhead[L]{\nouppercase{\rightmark}} %Kopfzeile links
+%\renewcommand{\chaptermark}[1]{%
+%\markboth{\thechapter.\ #1}{}}
+%\renewcommand{\chaptermark}[1]{\markright {\thechapter.\ #1}{}}
+\renewcommand{\chaptermark}[1]{\markright {\chaptername\ \thechapter:\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhead[C]{} %zentrierte Kopfzeile
+\fancyhead[R]{\thepage} %Kopfzeile rechts
+\renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie
+\fancyfoot[C]{} %leer
+\renewcommand{\footrulewidth}{0pt} %untere Trennlinie
+%\includeonly{practicalwork,practicalwork2}
+
+\makeatletter				% Neue Kapitel-Kopf (report!)
+\renewcommand{\@makechapterhead}[1]{%
+%  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+%        \huge\bfseries \@chapapp\space \thechapter
+%        \par\nobreak
+%        \vskip 20\p@
+%        \huge\bfseries \@chapapp\space \thechapter:
+        \huge\bfseries \space \thechapter \space\space
+    \fi
+    \interlinepenalty\@M
+%    \Huge \bfseries #1\par\nobreak
+%    \huge \bfseries #1\par\nobreak
+    \huge \bfseries #1\par\nobreak
+    \vskip 20\p@ % eigentlich 40 - Abstand zu nachfolgender Überschrift
+  }}
+\renewcommand{\@makeschapterhead}[1]{%
+%  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+%    \Huge \bfseries  #1\par\nobreak
+%    \huge \bfseries  #1\par\nobreak
+    \Large \bfseries  #1\par\nobreak
+    \vskip 15\p@ % eigentlich 40
+    }}
+\makeatother
+%vertikaler Abstand zwischen Array/Matrix Zeilen
+\setlength{\extrarowheight}{2.5pt} 
+
+
+\makeatletter
+\renewcommand\tiny{\@setfontsize\tiny{7}{8}}
+\makeatother
+
+
+\begin{document}
+\setlength\abovedisplayshortskip{3pt}
+\setlength\belowdisplayshortskip{3pt}
+\setlength\abovedisplayskip{8pt}
+\setlength\belowdisplayskip{8pt}
+
+
+\include{titlepage}
+
+\pagenumbering{arabic}
+\include{Introduction}
+
+
+
+\bibliographystyle{apalike}
+\bibliography{literatur}
+\end{document}

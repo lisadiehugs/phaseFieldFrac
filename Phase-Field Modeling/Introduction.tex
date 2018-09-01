@@ -1,0 +1,92 @@
+\chapter{Motivation}
+Fracture is one of the main failure mechanisms of engineering materials and structural components. Reliable prediction of crack initiation and propagation through computational models has the potential to enhance durability of engineering structures and prevent failure. One of the many complexities involved in fracture processes is to model the crack. A crack is discontinuous by its very nature which poses a significant challenge for numerical modeling. In a classical finite element setting it is necessary to track the crack as it propagates, which is a tedious task in particular in 3D. The main drawback of these discrete approaches, where the crack develops between adjacent elements, is the strong mesh dependency of the result. As an alternative, phase-field-type diffusive crack approaches have been introduced which avoid the modeling of discontinuities and can be implemented in a straightforward manner. Here, the crack is approximated using a phase-field which results in a smoothed fracture boundary. As the evolution of the crack directly follows from the solution of a partial differential equation, there is no need in complicated and expensive tracking of crack propagation. Evolution of the crack is independent of the mesh and no additional conditions or rules to determine crack propagation, nucleation or bifurcation have to be introduced.
+
+
+\chapter{Background} 
+% ACHTUNG viel gestohlen REPHRASE
+The original theory to understand brittle crack evolution was introduced first by Griffith \cite{griffith1921}. \cite{Irwi1958elasticity} introduced a new metric, called the stress intensity factor to account for the microscopic plasticity near the crack tip, even for macroscopically brittle materials. These basic theories considered crack propagation as a stability problem, where crack propagation is initiated if a critical value of the so-called energy release rate is exceeded. More precisely, they relate the dissipated energy during crack propagation to the energy required to form new crack surfaces. Valid for crack propagation, these theories are not able to account for curvilinear crack paths, benching or coalescence and in particular crack initiation. \\
+To overcome these decisive drawbacks a variational approach based on energy minimization has successfully been introduced by \cite{fran1998revisiting}. To make numerical solution more feasible, a regularized framework was proposed by \cite{bourd2000}) inspired by the work of image segmentation by Mumford and Shah \cite{mumf1989}. Here, the discrete crack is replaced by diffusive crack zones governed by a scalar auxiliary variable. This variable can be considered as a phase-field that interpolates between the unbroken and the broken states of the material. The regularization is based on a length-scale parameter which can be interpreted as the width of the regularized crack. Precisely, the length-scale parameter governs the extent of diffusion of the sharp crack. It can be shown, that the phase field model $\Gamma$-converges to the correct minimizing solution, i.e. that the discrete crack is recovered when the length-parameter tends to zero (for the concept of $\Gamma$-convergence see \cite{alberti2000variational}). In \cite{larsen2010existence}, \cite{bourdin2011time} the above presented quasi-static formulations were extended to account for dynamic fracture propagation. Moreover, extensions accounting for large deformations (\cite{miehe2014phase}, \cite{ambati2016phase}), ductile behavior (\cite{ambati2015phase}, \cite{alessi2015gradient}, \cite{borden2016phase}), cohesive effects (\cite{verhoosel2013phase}), pressurized fracture (\cite{wheeler2014augmented}) and anisotropy (\cite{li2015phase}) have been proposed. \\
+The formulation introduced in \cite{bour2008} allows for crack growth under compression, which can result in unphysical crack propagation patterns. To overcome this, models based on a tension-compression split have been proposed by \cite{amor2009regularized} and \cite{miehe2010thermodynamically}. Degradation due to the growing phase-field acts only on the positive (tensile) component of strain energy density. This so-called anisotropic formulation is able to account for crack closing and is particular important in the case of dynamic simulations. 
+Similar but independently developed are phase-field approaches to brittle fracture based on the classical Ginzburg–Landau-type evolution equation as reviewed in Hakim and Karma \cite{hakim2009laws}. These models may be considered as time-dependent viscous regularizations of the above-mentioned rate-independent theories of energy minimization. However, the Ginzburg–Landau-type evolution equation is fully viscous in nature and does not differentiate between energy storage and dissipation, which is a strong simplification of the physical mechanisms of brittle fracture. 
+
+\section{Numerical solution} 
+The mathematical description of the phase-field approach consists in a set of coupled equations, a non-linear system of stress equilibrium equations for the displacements and a gradient-type evolution equations for the crack phase field. These equations can be solved using either a staggered scheme, where the displacement and the crack phase field are solved alternately, or using a monolithic scheme, where the coupled set of equations is solved simultaneously for both variables. While monolithic schemes are in general more efficient (\cite{gerasimov2016line}), staggered implementations come with the advantage of being more robust \cite{miehe2010phase}. In a finite-element setting, the elements are required to resolve the length scale parameter, which usually results in very fine meshes and thus in high computational cost. Here, adaptive mesh-refinement techniques are a promising tool to lower computation time at no cost of accuracy.
+
+
+\chapter{Groups \& Recent Advances}
+\section{Ambati}
+{\bf Hybrid Formulation}: Anisotropic models are the only ones able to handle the physically different cracking behavior of materials in tension and compression, as well as the contact conditions at the crack faces upon their closure. In \cite{ambati2015review}, a so-called hybrid (isotropic–anisotropic) formulation was proposed. This formulation was shown to lead to results very similar to those of the available anisotropic models, at a small fraction of their computational cost. The reason is that, unlike anisotropic models, the proposed hybrid formulation leads to an incrementally linear problem within a staggered implementation, which delivers a saving in computational cost of about one order of magnitude. As the hybrid model reproduces the predictive performance of anisotropic models at the cost of isotropic models, it is expected to be of even greater convenience for 3D fracture problems, where the significant advantages of phase-field modeling over alternative computational treatments can be best exploited.
+\\
+
+{\bf Monolithic Solution Scheme:}
+Solving a quasi-static problem in 2D using the phase-field approach can already be very expensive, not to mention 3D problems and dynamic fracture propagation. On the one hand, this is due to the fine-meshes required near the crack tip to resolve the length scale parameter. On the other hand, a staggered solution scheme is typically used to solve the non-convex energy functional, which converges only very slowly (\cite{gerasimov2016line}). To overcome the deficits of the staggered solution approach, \cite{gerasimov2016line} proposed a monolithic solution scheme accompanied by a non-standard line search procedure. The monolithic approach suffers from lack of robustness, however, in combination with the proposed line search the method was able to accurately compute benchmark problems at reduced computational cost compared to the staggered approach. 
+\\
+
+{\bf Ductile Fracture}
+--- \cite{ambati2015phase}
+
+\section{Miehe}
+{\bf Tensor Split: }
+
+{\bf Dynamic Fracture:}
+
+{\bf Ductile Fracture:}
+
+\section{Schillinger}
+
+\chapter{Fracture Models}
+\section{Brittle Fracture}
+In the following, phase-field models originating from Griffith's theory will be considered. In essence, Griffith's criterion states that crack propagation is initiated as soon as the critical energy release rate $G_{c}$ equals the energy required to create a unit area of fracture surface. Based on this, \cite{fran1998revisiting} introduced the variational formulation of brittle fracture as a minimization problem of the energy functional
+\begin{equation}
+\label{eq:fracfort_functional}
+E({\bf u}, \Gamma)\,=\, \int_{\Omega}\,\psi_{0}(\varepsilon({\bf u})) \textrm{d}\Omega\,+\,\int_{\Gamma} G_{c}  \textrm{d}\Gamma\,,
+\end{equation}
+where $\bf \Psi$ is the potential energy and $\psi_{0}(\varepsilon)$ is the elastic energy density function. Here, the potential energy consists of the energy stored in the solid and the energy required to create the set of cracks $\Gamma(t)$. The variational approach is able to predict the initiation, propagation and interaction of cracks and thus overcomes the deficits of classical Griffith's theory. \\
+Numerical solution of the variational problem (\ref{eq:fracfort_functional}) proves difficult due to time dependency of the crack set $\Gamma (t)$. The regularized functional proposed by \cite{bour2008} facilitates easier numerical treatment by approximating the surface integral in (\ref{eq:fracfort_functional}), yielding
+\begin{equation}
+\label{eq:bourdin_reg_functional}
+E({\bf u}, s)\,=\, \int_{\Omega}\,\left(s^2\,+\,\eta\right)\psi_{0}(\varepsilon({\bf u})) \textrm{d}\Omega\,+\,G_{c}\int_{\Gamma} \left( \frac{1}{4 l_{0}} \left(1\,-\,s^2\right) \,+\, l_{0} |\nabla s|^2\right) \textrm{d}\Gamma\,.
+\end{equation}
+Here, a continuous scalar-variable $s\,\in\,[0,1]$, the crack-field, is introduced. The sharp crack is smoothed and modeled as a continuous field which attains a value of one in undamaged regions and is zero at the crack. Width of the transition zone is governed by the length-scale parameter $l_{0}$, which can be interpreted as the width of the crack. In the limit $l_{0} \rightarrow 0$ the regularized functional (\ref{eq:bourdin_reg_functional}) converges to the original formulation (\ref{eq:fracfort_functional}) in the sense of $\Gamma$-convergence. The parameter $\eta \ll 1$ represents the remaining stiffness in the case $s\,=\,0$ and is needed for numerical reasons.\\
+Instead of minimizing (\ref{eq:bourdin_reg_functional}) directly using so-called alternate minimization algorithms as suggested by \cite{bourd2000}, \cite{kuhn2008phase} were the first to consider cracking as a phase-transition problem. Reinterpreting the crack parameter $s$ as a phase field order parameter they derived a modified Ginzburg-Landau evolution equation for $s$:
+\begin{equation}
+\label{eq:kuhn_evolution}
+\dot s\,=\, - M \left[ 2s\Psi_{0}(\varepsilon)\,-\,G_{c}\left( 2\l_0 \Delta s \,+\, \frac{1-s}{2 l_0}\right) \right]\,,
+\end{equation}
+where $M\geq0$ is a mobility constant. The model is supplemented with the balance equation
+\begin{equation}
+\label{eq:kuhn_balance}
+- \textrm{div} \,\sigma\left( {\bf u}, s \right)\,=\,0\,, \quad \quad \textrm{where} \:\: \sigma\left( {\bf u}, s \right)\,=\, \left( s^2 \,+\, \eta\right)\frac{\partial \Psi_0({\bf \varepsilon})}{\partial {\bf \varepsilon}}\,.
+\end{equation} 
+One deficit of the formulation (\ref{eq:bourdin_reg_functional}) consists in the fact, that it allows for crack interpenetration under compression (negative displacements in contrast to crack opening, where we have positive displacements). This results in unphysical crack patterns. Due to symmetry of the functional (\ref{eq:bourdin_reg_functional}), an example leading to crack opening under a given load, will result in unphysical crack interpenetration for the opposite loading (\cite{amor2009regularized}). In order to account for asymmetric behavior in traction and compression \cite{amor2009regularized}, introduced a modified formulation based on a split of the strain energy in a spherical and a deviatoric part. The strain energy is given as \begin{equation}
+	\Psi_0\,=\,\Psi_0^{+}\,+\,\Psi_0^{-}\,,
+\end{equation}
+where $\Psi_0^{+}$ denotes the deviatoric part associated to tensile behavior and $\Psi_0^{-}$ the spherical part related to compression. These contributions are defined according to
+\begin{equation}
+\Psi_{0}(\varepsilon)^+\,=\, \frac{1}{2} \kappa_0 \langle \textrm{tr}(\varepsilon)\rangle^2_{+}\,+\,\mu\left( \varepsilon_{\textrm{dev}}\colon\varepsilon_{\textrm{dev}} \right)\,, \quad
+\Psi_{0}(\varepsilon)^-\,=\,\frac{1}{2} \kappa_0 \langle \textrm{tr}(\varepsilon)\rangle^2_{-}\,.
+\end{equation}
+Here, $\langle a \rangle_{\pm}\,=\, \frac{1}{2}\left( a\pm |a| \right)$ and $\varepsilon_{\textrm{dev}}\,=\, \varepsilon\,-\,\frac{1}{3}\textrm{tr}(\varepsilon){\bf I}$. In contrast to (\ref{eq:bourdin_reg_functional}), degradation acts only on the deviatoric part of the strain tensor. That way, the model permits crack opening in regions where material expands, while preventing crack evolution and in particular interpenetration of crack faces in compressed regions (\cite{amor2009regularized}). The modified energy functional then reads
+\begin{equation}
+\label{eq:amor_split_functional}
+E({\bf u}, s)\,=\, \int_{\Omega}\,\left(s^2\,+\,\eta\right)\psi_{0}^{+}(\varepsilon)\,+\,\psi_{0}^{-}(\varepsilon) \textrm{d}\Omega\,+\,G_{c}\int_{\Gamma} \left( \frac{1}{4 l_{0}} \left(1\,-\,s^2\right) \,+\, l_{0} |\nabla s|^2\right) \textrm{d}\Gamma\,.
+\end{equation}
+A similar model was presented in \cite{miehe2010thermodynamically}. Here, a tensile-compression split of the elastic energy based on the spectral decomposition of the strain tensor is proposed. The elastic strain energy is constructed as
+\begin{equation}
+\label{eq:strain_split_miehe}
+\Psi_{0}(\varepsilon)^{\pm}\,=\, \frac{1}{2}\lambda \langle \textrm{tr}(\varepsilon)\rangle^2_{\pm}\,+\,\mu \textrm{tr}(\varepsilon^2_{\pm})\,,
+\end{equation}
+where $\varepsilon_{\pm}\,=\,\sum_{a=1}^{3} \langle \varepsilon^a \rangle_{\pm} {\bf n}^a \otimes {\bf n}^a$ with the principal strains $\{\varepsilon^a \}^3_{a=1}$ and principal strain directions $\{{\bf n}^a \}^3_{a=1}$. The governing system of equations corresponds to the Euler-Lagrange equations of the energy functional (\ref{eq:amor_split_functional}) using the elastic strain energy from (\ref{eq:strain_split_miehe}), namely the balance equation
+\begin{equation}
+\textrm{div}\,{\bm \sigma}({\bf u}, \varepsilon)\,+\, \rho\,{\bf b}\,={\bf 0}\,,
+\end{equation}
+and the phase-field evolution equation
+\begin{equation}
+\left( \frac{4 l_0 }{G_c}\left( 1\,-\,\eta \right) \mathcal{H} \,+\, 1 \right) s \,-\, 4 l_{0}^2 \Delta s \,=\,1\,.
+\end{equation}
+Here, the strain tensor is given as ${\bm \sigma}({\bf u}, \varepsilon)\,=\, \frac{\partial{\bm \sigma}({\bf u}, \varepsilon) }{\partial \varepsilon}$
+
+\section{Ductile Fracture}
+
+\section{Cohesive Fracture}
+\chapter{Fracture Models for Human Bones}

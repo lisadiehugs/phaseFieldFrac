@@ -1,0 +1,149 @@
+\begin{thebibliography}{}
+
+\bibitem[Alberti, 2000]{alberti2000variational}
+Alberti, G. (2000).
+\newblock Variational models for phase transitions, an approach via
+  $\gamma$-convergence.
+\newblock In {\em Calculus of variations and partial differential equations},
+  pages 95--114. Springer.
+
+\bibitem[Alessi et~al., 2015]{alessi2015gradient}
+Alessi, R., Marigo, J.-J., and Vidoli, S. (2015).
+\newblock Gradient damage models coupled with plasticity: variational
+  formulation and main properties.
+\newblock {\em Mechanics of Materials}, 80:351--367.
+
+\bibitem[Ambati et~al., 2015a]{ambati2015phase}
+Ambati, M., Gerasimov, T., and De~Lorenzis, L. (2015a).
+\newblock Phase-field modeling of ductile fracture.
+\newblock {\em Computational Mechanics}, 55(5):1017--1040.
+
+\bibitem[Ambati et~al., 2015b]{ambati2015review}
+Ambati, M., Gerasimov, T., and Lorenzis, L.~D. (2015b).
+\newblock A review on phase-field models of brittle fracture and a new fast
+  hybrid formulation.
+\newblock {\em Computational Mechanics}, 55(2):383--405.
+
+\bibitem[Ambati et~al., 2016]{ambati2016phase}
+Ambati, M., Kruse, R., and De~Lorenzis, L. (2016).
+\newblock A phase-field model for ductile fracture at finite strains and its
+  experimental verification.
+\newblock {\em Computational Mechanics}, 57(1):149--167.
+
+\bibitem[Amor et~al., 2009]{amor2009regularized}
+Amor, H., Marigo, J.-J., and Maurini, C. (2009).
+\newblock Regularized formulation of the variational brittle fracture with
+  unilateral contact: Numerical experiments.
+\newblock 57:1209--1229.
+
+\bibitem[Borden et~al., 2016]{borden2016phase}
+Borden, M.~J., Hughes, T.~J., Landis, C.~M., Anvari, A., and Lee, I.~J. (2016).
+\newblock A phase-field formulation for fracture in ductile materials: Finite
+  deformation balance law derivation, plastic degradation, and stress
+  triaxiality effects.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  312:130--166.
+
+\bibitem[Bourdin et~al., 2000]{bourd2000}
+Bourdin, B., Francfort, G.~A., and Marigo, J.-J. (2000).
+\newblock Numerical experiments in revisited brittle fracture.
+\newblock {\em Journal of the Mechanics and Physics of Solids}, 48(4):797--826.
+
+\bibitem[Bourdin et~al., 2008]{bour2008}
+Bourdin, B., Francfort, G.~A., and Marigo, J.-J. (2008).
+\newblock The variational approach to fracture.
+\newblock {\em Journal of elasticity}, 91(1-3):5--148.
+
+\bibitem[Bourdin et~al., 2011]{bourdin2011time}
+Bourdin, B., Larsen, C.~J., and Richardson, C.~L. (2011).
+\newblock A time-discrete model for dynamic fracture based on crack
+  regularization.
+\newblock {\em International journal of fracture}, 168(2):133--143.
+
+\bibitem[Francfort and Marigo, 1998]{fran1998revisiting}
+Francfort, G.~A. and Marigo, J.-J. (1998).
+\newblock Revisiting brittle fracture as an energy minimization problem.
+\newblock {\em Journal of the Mechanics and Physics of Solids},
+  46(8):1319--1342.
+
+\bibitem[Gerasimov and De~Lorenzis, 2016]{gerasimov2016line}
+Gerasimov, T. and De~Lorenzis, L. (2016).
+\newblock A line search assisted monolithic approach for phase-field computing
+  of brittle fracture.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  312:276--303.
+
+\bibitem[Griffith and Eng, 1921]{griffith1921}
+Griffith, A.~A. and Eng, M. (1921).
+\newblock Vi. the phenomena of rupture and flow in solids.
+\newblock {\em Phil. Trans. R. Soc. Lond. A}, 221(582-593):163--198.
+
+\bibitem[Hakim and Karma, 2009]{hakim2009laws}
+Hakim, V. and Karma, A. (2009).
+\newblock Laws of crack motion and phase-field models of fracture.
+\newblock {\em Journal of the Mechanics and Physics of Solids}, 57(2):342--368.
+
+\bibitem[Irwin, 1958]{Irwi1958elasticity}
+Irwin, G.~R. (1958).
+\newblock {\em Fracture}, pages 551--590.
+\newblock Springer Berlin Heidelberg, Berlin, Heidelberg.
+
+\bibitem[Kuhn and M{\"u}ller, 2008]{kuhn2008phase}
+Kuhn, C. and M{\"u}ller, R. (2008).
+\newblock A phase field model for fracture.
+\newblock In {\em PAMM: Proceedings in Applied Mathematics and Mechanics},
+  volume~8, pages 10223--10224. Wiley Online Library.
+
+\bibitem[Larsen et~al., 2010]{larsen2010existence}
+Larsen, C.~J., Ortner, C., and S{\"u}li, E. (2010).
+\newblock Existence of solutions to a regularized model of dynamic fracture.
+\newblock {\em Mathematical Models and Methods in Applied Sciences},
+  20(07):1021--1048.
+
+\bibitem[Li et~al., 2015]{li2015phase}
+Li, B., Peco, C., Mill{\'a}n, D., Arias, I., and Arroyo, M. (2015).
+\newblock Phase-field modeling and simulation of fracture in brittle materials
+  with strongly anisotropic surface energy.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  102(3-4):711--727.
+
+\bibitem[Miehe et~al., 2010a]{miehe2010phase}
+Miehe, C., Hofacker, M., and Welschinger, F. (2010a).
+\newblock A phase field model for rate-independent crack propagation: Robust
+  algorithmic implementation based on operator splits.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  199(45-48):2765--2778.
+
+\bibitem[Miehe and Sch{\"a}nzel, 2014]{miehe2014phase}
+Miehe, C. and Sch{\"a}nzel, L.-M. (2014).
+\newblock Phase field modeling of fracture in rubbery polymers. part i: Finite
+  elasticity coupled with brittle failure.
+\newblock {\em Journal of the Mechanics and Physics of Solids}, 65:93--113.
+
+\bibitem[Miehe et~al., 2010b]{miehe2010thermodynamically}
+Miehe, C., Welschinger, F., and Hofacker, M. (2010b).
+\newblock Thermodynamically consistent phase-field models of fracture:
+  Variational principles and multi-field fe implementations.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  83(10):1273--1311.
+
+\bibitem[Mumford and Shah, 1989]{mumf1989}
+Mumford, D. and Shah, J. (1989).
+\newblock Optimal approximations by piecewise smooth functions and associated
+  variational problems.
+\newblock {\em Communications on pure and applied mathematics}, 42(5):577--685.
+
+\bibitem[Verhoosel and Borst, 2013]{verhoosel2013phase}
+Verhoosel, C.~V. and Borst, R. (2013).
+\newblock A phase-field model for cohesive fracture.
+\newblock {\em International Journal for numerical methods in Engineering},
+  96(1):43--62.
+
+\bibitem[Wheeler et~al., 2014]{wheeler2014augmented}
+Wheeler, M., Wick, T., and Wollner, W. (2014).
+\newblock An augmented-lagrangian method for the phase-field approach for
+  pressurized fractures.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  271:69--85.
+
+\end{thebibliography}

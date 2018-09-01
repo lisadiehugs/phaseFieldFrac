@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: main.aux
+A level-1 auxiliary file: titlepage.aux
+A level-1 auxiliary file: Introduction.aux
+The style file: apalike.bst
+Database file #1: literatur.bib
+Warning--empty journal in amor2009regularized
+Warning--can't use both author and editor fields in Irwi1958elasticity
+Warning--can't use both volume and number fields in kuhn2008phase
+You've used 24 entries,
+            1935 wiz_defined-function locations,
+            629 strings with 8092 characters,
+and the built_in function-call counts, 10582 in all, are:
+= -- 1076
+> -- 390
+< -- 14
++ -- 150
+- -- 128
+* -- 942
+:= -- 1769
+add.period$ -- 74
+call.type$ -- 24
+change.case$ -- 183
+chr.to.int$ -- 22
+cite$ -- 27
+duplicate$ -- 374
+empty$ -- 759
+format.name$ -- 168
+if$ -- 2078
+int.to.chr$ -- 3
+int.to.str$ -- 0
+missing$ -- 25
+newline$ -- 123
+num.names$ -- 72
+pop$ -- 141
+preamble$ -- 1
+purify$ -- 184
+quote$ -- 0
+skip$ -- 285
+stack$ -- 0
+substring$ -- 951
+swap$ -- 55
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 142
+warning$ -- 3
+while$ -- 98
+width$ -- 0
+write$ -- 317
+(There were 3 warnings)
